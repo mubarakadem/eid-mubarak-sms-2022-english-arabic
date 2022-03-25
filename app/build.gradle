@@ -46,6 +46,17 @@ android {
     }
 }
 
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -59,7 +70,7 @@ dependencies {
     //Compose Destination
     def destination_version = '1.4.0-beta'
     implementation "io.github.raamcosta.compose-destinations:animations-core:$destination_version"
-    ksp "'io.github.raamcosta.compose-destinations:ksp:$destination_version"
+    ksp "io.github.raamcosta.compose-destinations:ksp:$destination_version"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
