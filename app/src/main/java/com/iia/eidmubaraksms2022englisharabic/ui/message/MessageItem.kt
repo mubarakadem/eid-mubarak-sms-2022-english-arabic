@@ -13,6 +13,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
+import androidx.compose.ui.window.PopupProperties
 import androidx.constraintlayout.compose.ConstraintLayout
 
 @ExperimentalMaterial3Api
@@ -74,7 +75,7 @@ fun MessageItem() {
             }
 
             if (show) {
-                Popup(alignment = Alignment.BottomEnd, onDismissRequest = { show = false }) {
+                Popup(alignment = Alignment.BottomEnd, onDismissRequest = { show = false }, properties = PopupProperties(clippingEnabled = true)) {
                     Column(
                         verticalArrangement = Arrangement.spacedBy(2.dp),
                         modifier = Modifier.background(color = MaterialTheme.colorScheme.onSurface)
