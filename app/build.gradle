@@ -67,6 +67,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.activity:activity-compose:1.4.0'
 
+    //ConstraintLayout
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
+
     //Compose Destination
     def destination_version = '1.4.0-beta'
     implementation "io.github.raamcosta.compose-destinations:animations-core:$destination_version"

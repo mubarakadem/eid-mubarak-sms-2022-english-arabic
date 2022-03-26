@@ -9,7 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.iia.eidmubaraksms2022englisharabic.ui.home.NavGraphs
+import com.iia.eidmubaraksms2022englisharabic.ui.NavGraphs
 import com.iia.eidmubaraksms2022englisharabic.ui.theme.EidMubarakSMS2022EnglishArabicTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
 
