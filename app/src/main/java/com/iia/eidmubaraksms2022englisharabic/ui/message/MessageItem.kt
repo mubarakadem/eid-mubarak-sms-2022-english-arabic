@@ -18,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
-import androidx.constraintlayout.compose.ConstraintLayout
 
 @ExperimentalMaterial3Api
 @Composable
@@ -27,20 +26,14 @@ fun MessageItem() {
     var show by remember { mutableStateOf(false) }
 
     Card {
-        ConstraintLayout(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-
         ) {
-            val (heart, message, more) = createRefs()
-
             IconToggleButton(
                 checked = checked,
                 onCheckedChange = { checked = it },
-                modifier = Modifier.constrainAs(heart) {
-                    top.linkTo(parent.top)
-                    end.linkTo(parent.end)
-                }
+                modifier = Modifier.align(Alignment.End)
             ) {
                 if (checked) {
                     Icon(
@@ -60,23 +53,17 @@ fun MessageItem() {
                 text = "Creatures are the parasites of the neutral assimilation. Creatures are the parasites of the neutral assimilation. Creatures are the parasites of the neutral assimilation.",
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .constrainAs(message) {
-                        top.linkTo(heart.bottom)
-                        start.linkTo(parent.start)
-                        end.linkTo(parent.end)
-                    }
+                    .align(Alignment.CenterHorizontally)
                     .padding(16.dp)
             )
 
-            IconButton(onClick = {
-                show = !show
-            }, modifier = Modifier.constrainAs(more) {
-                top.linkTo(message.bottom)
-                end.linkTo(parent.end)
-                bottom.linkTo(parent.bottom)
-            }) {
+            IconButton(
+                onClick = { show = !show },
+                modifier = Modifier.align(Alignment.End)
+            ) {
                 Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More Menu")
             }
+
             if (show) {
                 PopUpMenu(
                     modifier = Modifier
@@ -88,11 +75,17 @@ fun MessageItem() {
                         Text(text = "Copy", color = MaterialTheme.colorScheme.onSurface)
                     }
                     MenuItem(onClick = {}) {
-                        Icon(imageVector = Icons.Default.Share, contentDescription = "Share as Text")
+                        Icon(
+                            imageVector = Icons.Default.Share,
+                            contentDescription = "Share as Text"
+                        )
                         Text(text = "Share as Text", color = MaterialTheme.colorScheme.onSurface)
                     }
                     MenuItem(onClick = {}) {
-                        Icon(imageVector = Icons.Default.Share, contentDescription = "Share as Image")
+                        Icon(
+                            imageVector = Icons.Default.Share,
+                            contentDescription = "Share as Image"
+                        )
                         Text(text = "Share as Image", color = MaterialTheme.colorScheme.onSurface)
                     }
                     MenuItem(onClick = {}) {
